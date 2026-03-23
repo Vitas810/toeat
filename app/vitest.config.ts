@@ -1,13 +1,13 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
+// Конфиг Vitest под Vite 3 и алиас @
 export default defineConfig({
   plugins: [vue()],
-  server: {
-    port: 3000,
+  test: {
+    environment: 'jsdom',
   },
   resolve: {
     alias: {

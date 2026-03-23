@@ -11,12 +11,9 @@
                 <router-link to="/restaurants?new=true" class="button">Add new food</router-link>
               </div>
             </div>
-            <div
-              data-aos="fade-right"
-              class="column is-10-mobile is-10-tablet is-4-desktop is-7-widescreen is-4-fullhd is-offset-1-fullhd"
-            >
+            <div class="column is-10-mobile is-10-tablet is-4-desktop is-7-widescreen is-4-fullhd is-offset-1-fullhd">
               <figure class="image is-square">
-                <img src="/images/pexels-andres-ayrton-square.jpg" />
+                <img src="/images/pexels-andres-ayrton-square.jpg" alt="" />
               </figure>
             </div>
           </div>

@@ -1,28 +1,27 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  defineProps({
-    tagline: {
-      type: [String, Number],
-      required: true,
-    }
-  })
+defineProps({
+  tagline: {
+    type: [String, Number],
+    required: true,
+  },
+})
 
-  const navList= ref([
-    {
-      name: 'Home',
-      path: '/',
-    },
-    {
-      name: 'Restaurants',
-      path: '/restaurants',
-    },
-    {
-      name: 'Dishes',
-      path: '/dishes',
-    },
-  ])
-
+const navList = ref([
+  {
+    name: 'Home',
+    path: '/',
+  },
+  {
+    name: 'Restaurants',
+    path: '/restaurants',
+  },
+  {
+    name: 'Dishes',
+    path: '/dishes',
+  },
+])
 </script>
 
 <template>

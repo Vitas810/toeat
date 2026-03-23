@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed } from 'vue'
 import type { PropType } from 'vue'
 import type { Restaurant } from '../types'
-
+import { statusTagBulmaClass } from '../constants'
 
 const props = defineProps({
   restaurant: {
@@ -15,20 +15,10 @@ const emits = defineEmits<{
   (e: 'delete-restaurant', restaurant: Restaurant): void
 }>()
 
- 
-const statusColor = computed(() => {
-  switch (props.restaurant.status) {
-    case 'Want to Try':
-        return 'is-warning'
-      case 'Recommended':
-        return 'is-success'
-      case 'Do Not Recommend':
-        return 'is-danger'
-      default:
-        return ''
-    }
-  })
-  
+/* =============== Класс тега статуса =============== */
+const statusColor = computed(() => statusTagBulmaClass[props.restaurant.status])
+
+// Удаление карточки
 const deleteRestaurant = () => {
   emits('delete-restaurant', props.restaurant)
 }
@@ -51,7 +41,7 @@ const deleteRestaurant = () => {
           {{ restaurant.address }}
         </div>
         <div>
-          <button @click="deleteRestaurant" class="button is-small is-danger is-light">Delete</button>
+          <button type="button" @click="deleteRestaurant" class="button is-small is-danger is-light">Delete</button>
         </div>
       </div>
     </div>

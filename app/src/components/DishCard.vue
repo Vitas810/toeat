@@ -1,35 +1,27 @@
 <script setup lang="ts">
-  import { computed } from "vue"
-  import type { PropType } from 'vue'
-  import type { Dish } from '../types'
+import { computed } from 'vue'
+import type { PropType } from 'vue'
+import type { Dish } from '../types'
+import { statusTagBulmaClass } from '../constants'
 
-  const props = defineProps({
-    dish: {
-      type: Object as PropType<Dish>,
-      required: true,
-    },
-  })
+const props = defineProps({
+  dish: {
+    type: Object as PropType<Dish>,
+    required: true,
+  },
+})
 
-  const emits = defineEmits<{
-    (e: 'delete-dish', dish: Dish): void
-  }>()
+const emits = defineEmits<{
+  (e: 'delete-dish', dish: Dish): void
+}>()
 
-  const statusColor = computed(() => {
-    switch (props.dish.status) {
-      case 'Want to Try':
-          return 'is-warning'
-        case 'Recommended':
-          return 'is-success'
-        case 'Do Not Recommend':
-          return 'is-danger'
-        default:
-          return ''
-      }
-    })
+/* =============== Класс тега статуса =============== */
+const statusColor = computed(() => statusTagBulmaClass[props.dish.status])
 
-  const deleteDish = () => {
-    emits('delete-dish', props.dish)
-  }
+// Удаление карточки
+const deleteDish = () => {
+  emits('delete-dish', props.dish)
+}
 </script>
 
 <template>
@@ -46,7 +38,7 @@
           <span class="tag" :class="statusColor">{{ dish.status }}</span>
         </p>
         <div>
-          <button @click="deleteDish" class="button is-small is-danger is-light">Delete</button>
+          <button type="button" @click="deleteDish" class="button is-small is-danger is-light">Delete</button>
         </div>
       </div>
     </div>
