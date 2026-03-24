@@ -2,8 +2,6 @@
 
 **Демо:** [vitas810.github.io/toeat](https://vitas810.github.io/toeat/)
 
-**GitHub Pages:** в репозитории **Settings → Pages → Build and deployment** источник должен быть **GitHub Actions**, не «Deploy from a branch». После пуша в `main` на вкладке **Actions** оба job (**build** и **deploy**) должны быть зелёными; при первом запуске среда `github-pages` иногда просит подтверждение в UI. Открывай именно `https://vitas810.github.io/toeat/` (имя репозитория = сегмент в URL и совпадает с `base` в `app/vite.config.ts`).
-
 Клиентское SPA: учёт ресторанов и блюд. Стек: Vue 3, TypeScript, Vite 3, Vue Router 4, Pinia 2, Bulma (Sass). Данные только в памяти браузера, **бэкенда нет** — состояние сбрасывается при перезагрузке страницы.
 
 Исходный код приложения: [`app/`](app/).
