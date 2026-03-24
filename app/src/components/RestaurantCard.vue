@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { PropType } from 'vue'
 import type { Restaurant } from '../types'
 import { statusTagBulmaClass } from '../constants'
+import restaurantThumbUrl from '@/assets/images/thumb-restaurant-ambience.png?url'
 
-const props = defineProps({
-  restaurant: {
-    type: Object as PropType<Restaurant>,
-    required: true,
-  },
-})
+const props = defineProps<{
+  restaurant: Restaurant
+}>()
 
 const emits = defineEmits<{
   (e: 'delete-restaurant', restaurant: Restaurant): void
@@ -25,23 +22,29 @@ const deleteRestaurant = () => {
 </script>
 
 <template>
-  <article class="box">
+  <article class="box app-entity-card">
     <div class="media">
       <aside class="media-left">
-        <img src="https://placehold.jp/150x150.png" alt="" />
+        <img
+          class="app-entity-card__thumb"
+          :src="restaurantThumbUrl"
+          width="132"
+          height="132"
+          alt=""
+        />
       </aside>
       <div class="media-content">
-        <p class="title is-4 is-spaced mb-1">
+        <p class="title is-4 is-spaced mb-2 app-entity-card__title">
           {{ restaurant.name }}
         </p>
-        <p class="subtitle mb-2">
+        <p class="subtitle mb-3">
           <span class="tag" :class="statusColor">{{ restaurant.status }}</span>
         </p>
-        <div class="content mb-2">
+        <p class="app-entity-card__address mb-3">
           {{ restaurant.address }}
-        </div>
+        </p>
         <div>
-          <button type="button" @click="deleteRestaurant" class="button is-small is-danger is-light">Delete</button>
+          <button type="button" class="button is-small is-danger is-light" @click="deleteRestaurant">Remove</button>
         </div>
       </div>
     </div>

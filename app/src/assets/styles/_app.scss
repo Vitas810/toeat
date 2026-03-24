@@ -1,0 +1,523 @@
+/* =============== Шрифт заголовков =============== */
+.app-font-display {
+  font-family: var(--app-font-display);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.app-shell .title {
+  color: var(--app-color-text);
+}
+
+.app-shell .subtitle {
+  color: var(--app-color-text-muted);
+}
+
+/* =============== Каркас приложения =============== */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: $body-background-color;
+  color: var(--app-color-text);
+}
+
+.app-shell__main {
+  flex-grow: 1;
+}
+
+/* =============== Навбар =============== */
+.app-navbar {
+  border-bottom: 1px solid var(--app-color-border);
+  backdrop-filter: blur(10px);
+}
+
+.app-navbar__inner {
+  max-width: var(--app-max-content);
+}
+
+.app-navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.app-navbar__brand {
+  display: flex;
+  align-items: center;
+  min-height: 3.25rem;
+}
+
+.app-navbar__brand img {
+  display: block;
+  height: 1.5rem;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+
+.app-navbar .navbar-item {
+  font-weight: 600;
+  border-radius: 0;
+  margin-left: 0.15rem;
+  margin-right: 0.15rem;
+  color: var(--app-color-text-muted);
+  background-color: transparent;
+}
+
+.app-navbar .navbar-item:hover {
+  color: var(--app-color-text);
+  background-color: transparent;
+}
+
+.app-navbar .navbar-item.router-link-active {
+  color: var(--app-color-gold);
+  background-color: transparent;
+  box-shadow: inset 0 -2px 0 0 var(--app-color-gold);
+}
+
+.app-navbar .app-navbar__brand.router-link-active,
+.app-navbar .app-navbar__brand.router-link-exact-active {
+  color: inherit;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.app-navbar .navbar-item:focus-visible {
+  outline: 2px solid var(--app-color-gold);
+  outline-offset: 2px;
+}
+
+.app-navbar__tagline {
+  color: var(--app-color-text-muted);
+  font-size: 0.8125rem;
+  max-width: 18rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1023px) {
+  .app-navbar__tagline {
+    display: none;
+  }
+}
+
+.navbar-burger {
+  color: var(--app-color-text);
+}
+
+.navbar-burger:hover {
+  background-color: var(--app-color-gold-soft);
+}
+
+/* =============== Hero главной =============== */
+.app-hero {
+  background-color: #121110;
+  background-image: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(184, 149, 107, 0.12) 0%, transparent 55%);
+}
+
+.app-hero .container {
+  max-width: var(--app-max-content);
+}
+
+.app-hero__kicker {
+  color: var(--app-color-gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.app-hero__title {
+  color: var(--app-color-text);
+  line-height: 1.12;
+}
+
+.app-hero__lead {
+  color: var(--app-color-text-muted);
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 34rem;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.app-hero__figure {
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: var(--app-shadow-elevated);
+  border: 1px solid var(--app-color-border);
+}
+
+.app-hero__figure img {
+  object-fit: cover;
+}
+
+.app-hero .button.is-primary {
+  background-color: var(--app-color-gold);
+  border-color: transparent;
+  color: #1a1816;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.app-hero .button.is-primary:hover {
+  filter: brightness(1.08);
+  color: #1a1816;
+}
+
+.app-hero .button.is-outlined {
+  border-color: var(--app-color-border-accent);
+  color: var(--app-color-text);
+  background-color: transparent;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.app-hero .button.is-outlined:hover {
+  background-color: var(--app-color-gold-soft);
+  border-color: var(--app-color-gold);
+  color: var(--app-color-text);
+}
+
+/* =============== Страница со списком =============== */
+.app-page {
+  padding-top: var(--app-space-section);
+  padding-bottom: calc(var(--app-space-section) * 1.5);
+  background-color: $body-background-color;
+}
+
+.app-page .container {
+  max-width: var(--app-max-content);
+}
+
+.app-page__header {
+  margin-bottom: 2rem;
+}
+
+.app-page__title {
+  color: var(--app-color-text);
+  letter-spacing: 0.02em;
+}
+
+.app-page__title.app-font-display {
+  font-size: 2.75rem;
+}
+
+.app-page__intro {
+  color: var(--app-color-text-muted);
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.app-page__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.app-page__meta {
+  color: var(--app-color-text-muted);
+  margin-right: auto;
+}
+
+.app-page__search .input {
+  background-color: var(--app-color-surface-muted);
+  border-color: var(--app-color-border);
+  color: var(--app-color-text);
+}
+
+.app-page__search .input::placeholder {
+  color: var(--app-color-text-muted);
+}
+
+.app-page__search .input:focus {
+  border-color: var(--app-color-gold);
+  box-shadow: 0 0 0 2px var(--app-color-gold-soft);
+}
+
+.app-page__search .button.is-static {
+  background-color: var(--app-color-surface-elevated);
+  border-color: var(--app-color-border);
+  color: var(--app-color-text-muted);
+}
+
+.app-page .button.is-success {
+  background-color: transparent;
+  border: 1px solid var(--app-color-gold);
+  color: var(--app-color-gold);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.app-page .button.is-success:hover {
+  background-color: var(--app-color-gold-soft);
+  color: var(--app-color-gold);
+}
+
+/* =============== Навигация разделов =============== */
+.app-rav-nav__label {
+  color: var(--app-color-text-muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.app-rav-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app-rav-nav__item {
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--app-color-border);
+}
+
+.app-rav-nav__link {
+  display: block;
+  padding: 0.65rem 0;
+  color: var(--app-color-text-muted);
+  font-family: var(--app-font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+}
+
+.app-rav-nav__link:hover {
+  color: var(--app-color-text);
+  background-color: transparent;
+}
+
+.app-rav-nav__link.router-link-active {
+  color: var(--app-color-gold);
+  background-color: transparent;
+  box-shadow: inset 3px 0 0 0 var(--app-color-gold);
+  padding-left: 0.75rem;
+}
+
+.app-rav-nav__link:focus-visible {
+  outline: 2px solid var(--app-color-gold);
+  outline-offset: 2px;
+}
+
+.app-side-menu__panel {
+  position: sticky;
+  top: 1rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--app-color-surface);
+  border-radius: var(--app-radius-panel);
+  border: 1px solid var(--app-color-border);
+  box-shadow: var(--app-shadow-card);
+}
+
+/* =============== Карточки (строка меню) =============== */
+.app-entity-card {
+  border: 1px solid var(--app-color-border);
+  box-shadow: var(--app-shadow-card);
+  border-radius: var(--app-radius-panel);
+  background-color: var(--app-color-surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-entity-card:hover {
+  border-color: var(--app-color-border-accent);
+  box-shadow: var(--app-shadow-elevated);
+}
+
+.app-entity-card__thumb {
+  width: 132px;
+  height: 132px;
+  border-radius: 2px;
+  object-fit: cover;
+  background-color: var(--app-color-surface-muted);
+}
+
+.app-entity-card__title {
+  color: var(--app-color-text);
+  font-family: var(--app-font-display);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.app-entity-card__address {
+  color: var(--app-color-text-muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.app-entity-card .tag {
+  border-radius: 2px;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.app-entity-card .tag.is-warning {
+  background-color: transparent;
+  border: 1px solid rgba(201, 162, 39, 0.55);
+  color: #e8d089;
+}
+
+.app-entity-card .tag.is-success {
+  background-color: transparent;
+  border: 1px solid rgba(125, 159, 132, 0.6);
+  color: #a8c9ad;
+}
+
+.app-entity-card .tag.is-danger {
+  background-color: transparent;
+  border: 1px solid rgba(196, 92, 92, 0.55);
+  color: #e0a0a0;
+}
+
+.app-entity-card .button.is-danger.is-light {
+  background-color: transparent;
+  border: 1px solid rgba(196, 92, 92, 0.4);
+  color: #e0a0a0;
+}
+
+.app-entity-card .button.is-danger.is-light:hover {
+  background-color: rgba(196, 92, 92, 0.12);
+}
+
+.app-entity-card .button.is-danger.is-light:focus-visible {
+  outline: 2px solid $danger;
+  outline-offset: 2px;
+}
+
+/* =============== Пустые состояния =============== */
+.app-empty {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: var(--app-color-surface);
+  border-radius: var(--app-radius-panel);
+  border: 1px dashed var(--app-color-border);
+  color: var(--app-color-text-muted);
+}
+
+.app-empty__icon {
+  font-size: 2rem;
+  color: var(--app-color-gold);
+  margin-bottom: 0.75rem;
+  opacity: 0.7;
+}
+
+.app-empty__text {
+  font-size: 1.05rem;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.55;
+}
+
+.app-alert--warning {
+  border-radius: var(--app-radius-panel);
+  background-color: rgba(201, 162, 39, 0.1);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  color: #e8d089;
+}
+
+.app-page .notification.is-light {
+  background-color: var(--app-color-surface-muted);
+  color: var(--app-color-text-muted);
+  border: 1px solid var(--app-color-border);
+}
+
+/* =============== Формы =============== */
+.app-form-panel {
+  padding: 1.75rem 2rem;
+  background-color: var(--app-color-surface);
+  border-radius: var(--app-radius-panel);
+  border: 1px solid var(--app-color-border);
+  box-shadow: var(--app-shadow-card);
+  max-width: 40rem;
+}
+
+.app-form-panel .title {
+  font-family: var(--app-font-display);
+  color: var(--app-color-text);
+}
+
+.app-form-panel .label {
+  color: var(--app-color-text-muted);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.app-form-panel .input,
+.app-form-panel .select select {
+  background-color: var(--app-color-surface-muted);
+  border-color: var(--app-color-border);
+  color: var(--app-color-text);
+}
+
+.app-form-panel .input::placeholder {
+  color: var(--app-color-text-muted);
+}
+
+.app-form-panel .input:focus,
+.app-form-panel .select select:focus {
+  border-color: var(--app-color-gold);
+  box-shadow: 0 0 0 2px var(--app-color-gold-soft);
+}
+
+.app-form-panel .button.is-success {
+  background-color: var(--app-color-gold);
+  border-color: transparent;
+  color: #1a1816;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.app-form-panel .button.is-success:hover {
+  filter: brightness(1.08);
+  color: #1a1816;
+}
+
+.app-form-panel .button.is-light {
+  background-color: transparent;
+  border: 1px solid var(--app-color-border);
+  color: var(--app-color-text-muted);
+}
+
+.app-form-panel .button.is-light:hover {
+  border-color: var(--app-color-gold);
+  color: var(--app-color-text);
+}
+
+.app-form-panel .button.is-success:focus-visible {
+  outline: 2px solid var(--app-color-gold);
+  outline-offset: 2px;
+}
+
+/* =============== Подвал =============== */
+.app-footer {
+  margin-top: auto;
+  background-color: $footer-background-color;
+  color: $footer-color;
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid var(--app-color-border);
+}
+
+.app-footer__text {
+  margin-bottom: 0;
+}

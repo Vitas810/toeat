@@ -38,50 +38,51 @@ onMounted(() => {
 </script>
 
 <template>
-  <form @submit.prevent>
+  <form class="app-form-panel" @submit.prevent>
+    <h2 class="title is-5 mb-4">New restaurant</h2>
     <div class="field">
-      <div class="field">
-        <label for="restaurant-name" class="label">Name</label>
-        <div class="control">
-          <input
-            id="restaurant-name"
-            v-model="newRestaurant.name"
-            ref="elNameInput"
-            type="text"
-            class="input is-large"
-            placeholder="Beignet and the Jets"
-            required
-          />
-        </div>
+      <label for="restaurant-name" class="label">Name</label>
+      <div class="control">
+        <input
+          id="restaurant-name"
+          ref="elNameInput"
+          v-model="newRestaurant.name"
+          type="text"
+          class="input is-large"
+          placeholder="Beignet and the Jets"
+          required
+        />
       </div>
-      <div class="field">
-        <label for="restaurant-address" class="label">Address</label>
-        <div class="control">
-          <input
-            id="restaurant-address"
-            v-model="newRestaurant.address"
-            type="text"
-            class="input"
-            placeholder="123 Main St."
-            required
-          />
-        </div>
+    </div>
+    <div class="field">
+      <label for="restaurant-address" class="label">Address</label>
+      <div class="control">
+        <input
+          id="restaurant-address"
+          v-model="newRestaurant.address"
+          type="text"
+          class="input"
+          placeholder="123 Main St."
+          required
+        />
       </div>
-      <div class="field">
-        <label for="restaurant-website" class="label">Website</label>
-        <div class="control">
-          <input
-            id="restaurant-website"
-            v-model="newRestaurant.website"
-            type="text"
-            class="input"
-            placeholder="www.beignetandthejets.com"
-          />
-        </div>
+    </div>
+    <div class="field">
+      <label for="restaurant-website" class="label">Website</label>
+      <div class="control">
+        <input
+          id="restaurant-website"
+          v-model="newRestaurant.website"
+          type="text"
+          class="input"
+          placeholder="www.beignetandthejets.com"
+        />
       </div>
-      <div class="field mb-5">
-        <label for="status" class="label">Status</label>
-        <div class="select">
+    </div>
+    <div class="field mb-5">
+      <label for="status" class="label">Status</label>
+      <div class="control">
+        <div class="select is-fullwidth">
           <select id="status" v-model="newRestaurant.status">
             <option v-for="status in restaurantStatusList" :key="`option-${status}`" :value="status">
               {{ status }}
@@ -89,11 +90,11 @@ onMounted(() => {
           </select>
         </div>
       </div>
-      <div class="field">
-        <div class="buttons">
-          <button type="button" @click="addNewRestaurant" class="button is-success">Create</button>
-          <button type="button" @click="cancelNewRestaurant" class="button is-light">Cancel</button>
-        </div>
+    </div>
+    <div class="field">
+      <div class="buttons">
+        <button type="button" class="button is-success" @click="addNewRestaurant">Create</button>
+        <button type="button" class="button is-light" @click="cancelNewRestaurant">Cancel</button>
       </div>
     </div>
   </form>

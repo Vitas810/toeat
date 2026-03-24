@@ -37,27 +37,26 @@ onMounted(() => {
 </script>
 
 <template>
-  <form @submit.prevent>
+  <form class="app-form-panel" @submit.prevent>
+    <h2 class="title is-5 mb-4">New dish</h2>
     <div class="field">
-      <div class="field">
-        <label for="dish-name" class="label">Name</label>
-        <div class="control">
-          <input
-            id="dish-name"
-            v-model="newDish.name"
-            ref="elDishNameInput"
-            type="text"
-            class="input is-large"
-            placeholder="Mystery Flavored Shrimp"
-            required
-          />
-        </div>
+      <label for="dish-name" class="label">Name</label>
+      <div class="control">
+        <input
+          id="dish-name"
+          ref="elDishNameInput"
+          v-model="newDish.name"
+          type="text"
+          class="input is-large"
+          placeholder="Mystery Flavored Shrimp"
+          required
+        />
       </div>
-      <div class="field">
-        <div class="buttons">
-          <button type="button" @click="addNewDish" class="button is-success">Create</button>
-          <button type="button" @click="cancelNewDish" class="button is-light">Cancel</button>
-        </div>
+    </div>
+    <div class="field">
+      <div class="buttons">
+        <button type="button" class="button is-success" @click="addNewDish">Create</button>
+        <button type="button" class="button is-light" @click="cancelNewDish">Cancel</button>
       </div>
     </div>
   </form>

@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { PropType } from 'vue'
 import type { Dish } from '../types'
 import { statusTagBulmaClass } from '../constants'
+import dishThumbUrl from '@/assets/images/thumb-dish-still-life.png?url'
 
-const props = defineProps({
-  dish: {
-    type: Object as PropType<Dish>,
-    required: true,
-  },
-})
+const props = defineProps<{
+  dish: Dish
+}>()
 
 const emits = defineEmits<{
   (e: 'delete-dish', dish: Dish): void
@@ -25,20 +22,26 @@ const deleteDish = () => {
 </script>
 
 <template>
-  <article class="box">
+  <article class="box app-entity-card">
     <div class="media">
       <aside class="media-left">
-        <img src="https://placehold.jp/150x150.png" alt="" />
+        <img
+          class="app-entity-card__thumb"
+          :src="dishThumbUrl"
+          width="132"
+          height="132"
+          alt=""
+        />
       </aside>
       <div class="media-content">
-        <p class="title is-4 is-spaced mb-1">
+        <p class="title is-4 is-spaced mb-2 app-entity-card__title">
           {{ dish.name }}
         </p>
-        <p class="subtitle mb-2">
+        <p class="subtitle mb-3">
           <span class="tag" :class="statusColor">{{ dish.status }}</span>
         </p>
         <div>
-          <button type="button" @click="deleteDish" class="button is-small is-danger is-light">Delete</button>
+          <button type="button" class="button is-small is-danger is-light" @click="deleteDish">Remove</button>
         </div>
       </div>
     </div>

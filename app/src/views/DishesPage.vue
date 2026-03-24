@@ -48,47 +48,55 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="section">
-    <div class="columns">
-      <SideMenu />
+  <main class="section app-page">
+    <div class="container">
+      <div class="columns">
+        <SideMenu />
 
-      <div class="column">
-        <h1 class="title">Dishes</h1>
+        <div class="column">
+          <header class="app-page__header">
+            <h1 class="title is-2 app-page__title app-font-display">Dishes</h1>
+            <p class="subtitle is-6 app-page__intro">Track dishes you crave, recommend, or want to skip.</p>
+          </header>
 
-        <nav v-if="!showNewForm" class="level">
-          <div class="level-left">
-            <div class="level-item">
-              <p class="subtitle is-5">
-                <strong>{{ numberOfDishes }}</strong> dishes
+          <nav v-if="!showNewForm" class="app-page__toolbar" aria-label="Действия и поиск по блюдам">
+            <p class="subtitle is-5 app-page__meta">
+              <strong>{{ numberOfDishes }}</strong> dishes
+            </p>
+            <button type="button" class="button is-success" @click="showNewForm = true">New</button>
+            <div class="field has-addons app-page__search">
+              <p class="control is-expanded">
+                <input
+                  v-model="filterText"
+                  class="input"
+                  type="search"
+                  placeholder="Filter by dish name"
+                  aria-label="Фильтр по названию блюда"
+                />
+              </p>
+              <p class="control">
+                <span class="button is-static" aria-hidden="true">Search</span>
               </p>
             </div>
+          </nav>
 
-            <p class="level-item">
-              <button type="button" @click="showNewForm = true" class="button is-success">New</button>
+          <NewDishForm v-if="showNewForm" @add-new-dish="addDish" @cancel-new-dish="hideForm" />
+
+          <div v-else-if="hasNoDishes" class="app-empty" role="status">
+            <p class="app-empty__icon" aria-hidden="true">
+              <span class="fa fa-coffee"></span>
             </p>
-
-            <div class="level-item is-hidden-tablet-only">
-              <div class="field has-addons">
-                <p class="control">
-                  <input v-model="filterText" class="input" type="text" placeholder="Dish name" />
-                </p>
-                <p class="control">
-                  <span class="button is-static">Search</span>
-                </p>
-              </div>
-            </div>
+            <p class="app-empty__text">No dishes yet. Use <strong>New</strong> to log the first one.</p>
           </div>
-        </nav>
 
-        <NewDishForm v-if="showNewForm" @add-new-dish="addDish" @cancel-new-dish="hideForm" />
+          <div v-else-if="hasNoSearchResults" class="notification is-warning is-light app-alert--warning" role="status">
+            No dishes match your search.
+          </div>
 
-        <div v-else-if="hasNoDishes" class="notification is-light">No dishes yet. Add one with New.</div>
-
-        <div v-else-if="hasNoSearchResults" class="notification is-warning is-light">No dishes match your search.</div>
-
-        <div v-else class="columns is-multiline">
-          <div v-for="item in filteredDishList" :key="item.id" class="column is-full">
-            <DishCard :dish="item" @delete-dish="deleteDish" />
+          <div v-else class="columns is-multiline app-card-list">
+            <div v-for="item in filteredDishList" :key="item.id" class="column is-full">
+              <DishCard :dish="item" @delete-dish="deleteDish" />
+            </div>
           </div>
         </div>
       </div>

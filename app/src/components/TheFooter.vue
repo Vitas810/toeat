@@ -1,13 +1,12 @@
+<script setup lang="ts">
+/* =============== Год в футере =============== */
+const copyrightYear = new Date().getFullYear()
+</script>
+
 <template>
-  <footer class="footer">
+  <footer class="footer app-footer">
     <div class="content has-text-centered">
-      <p>
-        Built with <a href="https://vuejs.org/">Vue</a> and <a href="https://bulma.io/">Bulma</a> by
-        <a href="https://www.bencodezen.io">Ben Hong</a>. <br /><a
-          href="https://github.com/bencodezen/typescript-and-vue-workshop"
-          >Source Code</a
-        >
-      </p>
+      <p class="app-footer__text">Copyright © {{ copyrightYear }} ToEat. All rights reserved.</p>
     </div>
   </footer>
 </template>
